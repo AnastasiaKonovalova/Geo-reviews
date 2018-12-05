@@ -1,0 +1,27 @@
+<div class="review__block">
+    <div class="review__header">
+        <div class="review__address">
+            <div class="review__icon"></div>
+            <div class="review__address-text">{{address}}</div>
+        </div>
+        <button id="closeReview" class="review__close-btn close-btn">
+            <svg class="cross svg--white">
+                <use xlink:href="/src/img/cross.svg#cross"></use>
+            </svg>
+        </button>
+    </div>
+
+    <div class="review__content">
+        {{> "./reviews-old.hbs"}}
+    </div>
+
+    <div class="review__form-container">
+        <div class="review__form-header">Ваш отзыв</div>
+        <form id="addReview" action="" class="review__form form">
+            <input type="text" class="form__user input" placeholder="Ваше имя" name="userName">
+            <input type="text" class="form__place input" placeholder="Укажите место" name="place">
+            <textarea class="form__review-text input" name="reviewText" id="" cols="30" rows="10" placeholder="Поделитесь впечатлениями"></textarea>
+            <button id="addReview" class="form__add-btn btn--orange">Добавить</button>
+        </form>
+    </div>
+</div>

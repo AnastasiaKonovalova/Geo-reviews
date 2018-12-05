@@ -1,0 +1,16 @@
+<ul class="reviews__list">
+    {{#if oldReviews}}
+        {{#each reviewsList}}
+            <li class="reviews__item old-review">
+                <div class="old-review__info">
+                    <span class="old-review__user">{{userName}}</span>
+                    <span class="old-review__place">{{place}}</span>
+                    <span class="old-review__date">{{date}}</span>
+                </div>
+                <div class="old-review__text">{{reviewText}}</div>
+            </li>
+        {{/each}}
+    {{^}}
+    Отзывов пока нет ...
+    {{/if}}
+</ul>

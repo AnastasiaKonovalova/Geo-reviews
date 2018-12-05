@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,500');
+@import url('./utilities/normalize.css');
+
+$orange: #ff8663; 
+$gray: #696666;
+$light-gray: #c4c4c4;  
+$white: white;
+$brown-gray:#4f4f4f;
+
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 15px;
+}
+body{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: $brown-gray;
+    width: 100%;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+h1, h2, h3, h4{
+  line-height: 1;
+  font-size: 1em;
+  margin: 0;
+  font-weight: normal;
+}
+
+button{
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+input{
+  border: none;
+  color: $brown-gray;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+#homework-container{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#map{
+  width: 95vw; 
+  height: 95vh;
+}
+#review-container{
+  background-color: $white;
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  z-index: 10;
+}
+.review__block{
+  width: 380px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
+
+  padding: 15px;
+
+}
+
+
+.review__header{
+  font-weight: 300;
+  font-size: 12px;
+  display: flex;
+  color: $white;
+  line-height: 1;
+
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  margin: -15px;
+  padding: 15px;
+  background-color: $orange;
+  border-radius: 10px 10px 0 0;
+
+  .cross{
+    width: 12px;
+    height: 12px;
+    transform-origin: 50% 50%;
+    transition: fill 0.3s;
+  }
+}
+.svg--white{
+  fill: rgba($white, .7);
+
+  &:hover{
+    fill: $white;
+  }
+}
+
+.review__content{
+  height: 150px;
+  margin: 30px 0 15px 0; 
+  overflow-y: scroll;
+}
+.old-review{
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.old-review__info{
+  margin-bottom: 12px;
+}
+.old-review__user{
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.old-review__place{
+  margin-right: 10px;
+  white-space: nowrap;
+}
+.old-review__date{
+  white-space: nowrap;
+}
+
+.review__form-container{
+  min-height: 330px;
+  border-top: $light-gray solid 1px;
+}
+.review__form-header{
+  font-size: 16px;
+  color: $orange;
+  text-transform: uppercase;
+  margin: 15px 0;
+}
+.input{
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: $light-gray solid 1px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 300;
+}
+.form__review-text{
+  resize: none;
+  
+  &:focus{
+    outline: none;
+  }
+}
+.form__add-btn{
+  font-weight: 300;
+  font-size: 12px;
+  color: $white;
+  background-color: $orange;
+  padding: 9px 15px;
+  border-radius: 9px;
+}
+
+.baloon__address{
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: block;
+}
+.baloon__reviews-list{
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: $brown-gray;
+}
+.baloon__review-item{
+  margin-bottom: 15px;
+}
+.baloon__review-place{
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.baloon__review-alignment{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.baloon__review-date{
+  font-size: 12px;
+  color: $gray;
+  margin-left: 10px;
+}
