@@ -132,7 +132,7 @@ input{
 }
 
 .review__content{
-  height: 150px;
+  height: 80px;
   margin: 30px 0 15px 0; 
   overflow-y: scroll;
 }
@@ -142,14 +142,14 @@ input{
   margin-bottom: 12px;
 }
 .old-review__info{
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .old-review__user{
   font-weight: 500;
   font-size: 16px;
   margin-right: 10px;
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .old-review__place{
   margin-right: 10px;
@@ -186,7 +186,7 @@ input{
     outline: none;
   }
 }
-.form__add-btn{
+.btn--orange{
   font-weight: 300;
   font-size: 12px;
   color: $white;
@@ -225,4 +225,10 @@ input{
   font-size: 12px;
   color: $gray;
   margin-left: 10px;
+}
+
+.clear-btn{
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
 }

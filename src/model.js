@@ -1,18 +1,19 @@
+const ymaps = window.ymaps;
+
 export class Model {    
     constructor() {
         this.map = null;
         this.cluster = null;
-        this.marker = null
+        this.marker = null;
+        this.storage = []
     }
     
     initMap() {
-        const myMap = new ymaps.Map('map', {
+        this.map = new ymaps.Map('map', {
             center: [55.76, 37.64],
             zoom: 15,
             controls: []
         });
-
-        this.map = myMap;
     }
 
     createClusterer(innerlayout) {
@@ -27,19 +28,12 @@ export class Model {
         this.cluster = clusterer;
     }
 
-    async createPlacemark(coords) {
+    async createPlacemarkByCoordinates(coords) {
         try {
             const response = await ymaps.geocode(coords);
             const address = response.geoObjects.get(0).properties
                 .get('metaDataProperty').GeocoderMetaData.Address.formatted;
-            const placemark = new ymaps.Placemark(coords, {
-                myId: Date.now(),
-                myAddress: address,
-                myReviews: []
-            }, {
-                preset: 'islands#violetDotIcon'
-            }
-            );
+            const placemark = this.createPlacemark(coords, { address })
 
             this.marker = placemark;
 
@@ -47,6 +41,28 @@ export class Model {
         } catch (reject) {
             console.error(reject.message);
         }
+
+    }
+
+    createPlacemark(coords, properties) {
+        const placemark = new ymaps.Placemark(coords, {
+            myCoords: coords,
+            myId: properties.id || Date.now(),
+            myAddress: properties.address,
+            myReviews: properties.reviewsList || []
+        }, {
+            preset: 'islands#violetDotIcon'
+        })
+
+        return placemark
+    }
+
+    createPlacemarkFromLocalStorage(coords, properties) {
+        const placemark = this.createPlacemark(coords, properties);
+
+        this.cluster.add(placemark);
+
+        return placemark;
     }
     
     pushReviewToPlacemark(inputs) {

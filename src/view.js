@@ -1,6 +1,8 @@
 import renderForm from './utilities/review-form.hbs';
 import renderOld from './utilities/reviews-old.hbs';
 
+const ymaps = window.ymaps;
+
 export class View {
     constructor() {
         this.templates = {
@@ -24,7 +26,9 @@ export class View {
     }
 
     render(renderFnName, placemark) {
-        return this.templates[renderFnName](placemark)
+        if ( this.templates.hasOwnProperty(renderFnName) ) {
+            return this.templates[renderFnName](placemark)
+        }
     }
     
     placeFormOnScreen(container, coords) {
@@ -63,7 +67,7 @@ export class View {
         return innerLayout;
     }
 
-    deletePositionStyles (container) {
+    deletePositionStyles(container) {
         container.style.top = '';
         container.style.right = '';
         container.style.bottom = '';
