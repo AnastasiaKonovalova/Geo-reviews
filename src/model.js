@@ -8,10 +8,9 @@ export class Model {
         this.storage = []
     }
     clearInfo() {
-        this.cluster = null;
         this.marker = null;
         this.storage = []
-        this.map.geoObjects.removeAll()
+        this.cluster.removeAll()
     }
     
     initMap() {
