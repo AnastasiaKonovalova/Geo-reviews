@@ -85,7 +85,8 @@ class Controller {
                     }
                 }
                 if (actionBtn.id === 'clearLocalStorage') {
-                    localStorage.clear()
+                    localStorage.clear();
+                    model.clearInfo();
                 }
             }
         
@@ -131,11 +132,11 @@ class Controller {
 
     manageLocalStorage(placemark) {
         const placemarkObj = this.formObjectForRender(placemark);
-        const ind = model.storage.findIndex( item =>
+        const placemarkIndex = model.storage.findIndex( item =>
             item.coords === placemark.properties.get('myCoords') )
 
-        if (ind >= 0) {
-            model.storage[ind] = placemarkObj
+        if (placemarkIndex >= 0) {
+            model.storage[placemarkIndex] = placemarkObj
         } else {
             model.storage.push(placemarkObj);
         }

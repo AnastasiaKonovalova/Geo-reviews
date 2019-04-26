@@ -7,6 +7,12 @@ export class Model {
         this.marker = null;
         this.storage = []
     }
+    clearInfo() {
+        this.cluster = null;
+        this.marker = null;
+        this.storage = []
+        this.map.geoObjects.removeAll()
+    }
     
     initMap() {
         this.map = new ymaps.Map('map', {
