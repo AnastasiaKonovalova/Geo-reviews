@@ -113,7 +113,9 @@ class Controller {
 
             moveAt = e => {
                 container.style.left = e.clientX - shift.X + 'px';
-                container.style.top = e.clientY - shift.Y + 'px'
+                container.style.top = e.clientY - shift.Y + 'px';
+                container.style.bottom = '';
+                container.style.right = '';
             }
             moveAt(e)
 
